@@ -16,7 +16,7 @@ class Objeto{
 int recorrer(string path, Objeto& listaV, int &subIndex){
 	subIndex++;
 	int sumTotal = 0, nuevaSuma = 0;
-	string fileName = " ", newPath = " ", dato = " ";
+	string fileName = " ", newPath = " ";
    	DIR *dir;
 	struct dirent *ent;
 	if ((dir = opendir (path.c_str())) != NULL) {
@@ -29,16 +29,14 @@ int recorrer(string path, Objeto& listaV, int &subIndex){
 	   	if(file_size!=-1 && fileName!="." && fileName!=".."){
 	   		sumTotal+=file_size;
 	   		if(subIndex<=1){
-	   			dato = ent->d_name;
-	   			listaV.files.push_back("\"name\":\""+dato+"\"");
+	   			listaV.files.push_back("\"name\":\""+fileName+"\"");
 	   			listaV.size.push_back("\"size\":"+to_string(file_size));
 	   		}	
 	   	}else if(file_size==-1 && fileName!="." && fileName!=".."){
 	  		nuevaSuma = recorrer(newPath, listaV, subIndex);
 			sumTotal += nuevaSuma;
 	  		if(subIndex<=1){
-	   			dato = ent->d_name;
-	  			listaV.files.push_back("\"name\":\""+dato+"\"");
+	  			listaV.files.push_back("\"name\":\""+fileName+"\"");
 	  		}
 	   	}
 	  }
