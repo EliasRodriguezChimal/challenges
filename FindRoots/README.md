@@ -68,3 +68,12 @@ El procedimiento consiste en tomar los 4 valores (*a*, *b*, *c* y *d*) proporcio
       
    Por lo tanto, dentro del código existe un *if* para verificar si el número *d* introducido desde consola es igual a 0, en caso de serlo, se agrega el número 0 como una
    solución al vector *raices*.
+
+   ## Ejecución del código:
+   
+   Debido a que el código no contiene un *system("PAUSE")* o algo que le diga que debe detenerse en ése punto, no puede ejecutarse el *.exe* por sí solo, si no que debe
+   ser ejecutado desde consola después de generarse y con el formato:
+   
+   ```
+   findroots(.exe) a b c d
+   ```
